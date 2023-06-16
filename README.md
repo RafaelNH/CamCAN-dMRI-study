@@ -6,7 +6,7 @@ Henriques, RN, Henson, R, Cam-CAN, Correia, MM. Unique information from common d
 
 # Content
 
-- Folder "processing_codes": contains the general code used to process DTI/DKI/NODDI. Note, only the essential steps to allow the replication of our pre-processing were posted. Cam-CAN raw data is available at https://camcan-archive.mrc-cbu.cam.ac.uk/dataaccess/. If you want to run the processing codes after having access to the Cam-CAN data you will have to add the right data paths in the scripts. Some code packages are also missing (e.g. NODDI toolbox, NIFTI toolbox, DIPY python codes) which can be found on-line.
+- Folder "processing_codes": contains the general code used to process DTI/DKI/NODDI. Note, only the essential steps to allow the replication of our data processing were posted. Cam-CAN raw data is available at https://camcan-archive.mrc-cbu.cam.ac.uk/dataaccess/. If you want to run the processing codes after having access to the Cam-CAN data you will have to insert our own data paths in the scripts. Some code packages are also missing (e.g. NODDI toolbox, NIFTI toolbox, DIPY python codes) which can be found on-line.
 
 - Folder "data": Containing a matlab file with the final output from the last processing step in "processing_codes". This allows running the analysing scripts without the need of reruning the code in "processing_codes".
 
