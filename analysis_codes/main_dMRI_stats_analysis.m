@@ -4,7 +4,7 @@ clc
 
 addpath ../data
 addpath NIFTI_toolbox
-load Diffusion_vs_Age_WMlabels_mean_NODDI90.mat
+load Diffusion_vs_Age_WMlabels_mean_NODDI90_expanded.mat
 
 % Labes of metrics analysed
 lab = {'FA','MSD','MSK','NDI','ODI','F_{iso}'};
@@ -191,7 +191,6 @@ if remove_out
     
     figure, boxplot(zd(ind,:))
 end
-
 %
 if save_images == 1
     v = load_untouch_nii('../data/JHU-ICBM-labels-1mm.nii');
@@ -258,6 +257,8 @@ end
 
 Q = fdr_bh(P(:));
 Q = reshape(Q, size(P));
+
+save('in', 'in', 'Q', 'P')
 
 if save_images == 1
     for si = 1:3
@@ -330,6 +331,12 @@ print -f4 -depsc 'Fig5_Metric_CorrMat.eps'
 %figure,bar(LATENT) % Scree criterion (visually) clearly suggests 3 comps
 nPC = length(find(LATENT*length(LATENT)/sum(LATENT) > 1)) 
 % Kaiser criterion (normalised eigenvalues > 1) also suggests 3
+fb = figure('color', [1, 1, 1]);
+bar(EXPLAINED, 'FaceColor', [0.4 0.4 1]);
+ax = gca;
+ax.FontSize = 20; 
+eval(sprintf('print -depsc -f%d Fig_explained_variance.eps',...
+    fb.Number))
 EXPLAINED
 sum(EXPLAINED(1:nPC)) % >95% 
 
@@ -352,13 +359,13 @@ end
 % 2nd PC ~= +MD, +Fiso
 % 3rd PC ~= -FA, +OD
 
-f2 = figure(7); %set(f2,'Position',[500 500 1500 1500]); 
+f2 = figure(8); %set(f2,'Position',[500 500 1500 1500]); 
 clf
-f3 = figure(8); %set(f3,'Position',[1000 1000 1500 1500]);
+f3 = figure(9); %set(f3,'Position',[1000 1000 1500 1500]);
 
-f2 = figure(7); set(f2,'Position',[100 30 850 740]);
+f2 = figure(8); set(f2,'Position',[100 30 850 740]);
 clf
-f3 = figure(8); set(f3,'Position',[100 30 850 740]);
+f3 = figure(9); set(f3,'Position',[100 30 850 740]);
 clf
 for f = 1:3
     tmp = zd(ind,:) * LAMBDA(:,f);
