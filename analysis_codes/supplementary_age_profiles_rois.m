@@ -18,10 +18,11 @@ age = age';
 %roi = 5; % CCs
 
 % Observation on other areas of interesr.
-roi = [19, 20]; %PLIC (Area with early declines in FA, likely a consequence of ODI increases)
+%roi = [19, 20]; %PLIC (Area with early declines in FA, likely a consequence of ODI increases)
 %roi = [7, 8]; %CST (Example of Area that is relatively stable with age, in line with small R2 in Fig. 3
 %roi = [29, 30]; % Post_Thalamic_Radiation (region with earlier declines detected by FA, MSK, NDI)
-%roi = [13, 14]; % Sup_Cerebellar_Ped - Area that shows large effects in FA/ODI - FA increases due to ODI decreases
+roi = [13, 14]; % Sup_Cerebellar_Ped - Area that shows large effects in FA/ODI - FA increases due to ODI decreases
+%roi = [15, 16];
 %roi = 6; % fornix .This area is highly contaminated by free water
 %increases with age. As a consequence Fiso shows large increases with age.
 %As large age this region of interest basically captures free water
